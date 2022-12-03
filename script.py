@@ -21,6 +21,16 @@
 # + __repr__ (self): void
 # ----------------------------------------------------------------------------------------------------------
 
+# ----------------------------------------------------------------------------------------------------------
+# Business
+# ----------------------------------------------------------------------------------------------------------
+# - name: string
+# - franchises: Franchise                            
+# ----------------------------------------------------------------------------------------------------------
+# + __init__ (self, string, *Franchise): void
+# ----------------------------------------------------------------------------------------------------------
+
+
 # Menu Definition ------------------------------------------------------------------------------------------
 class Menu:
   # Constructor
@@ -31,7 +41,7 @@ class Menu:
     self.end_time = end_time           # menu available until
   # Print the menu's name with the start and end time info.
   def print_info(self):
-    print(self.name + ' menu available from ' + self.start_time + ' to ' + self.end_time)
+    print(self.name + ' menu available from ' + str(self.start_time) + ' to ' + str(self.end_time))
   # Calculate and print the bill amount based on purchased_items.
   def calculate_bill(self, *purchased_items):    
     total_bill = 0 # initialized
@@ -55,6 +65,23 @@ class Franchise:
   def __repr__(self):
     print(self.address)
     return self.address
+  # Take an integer vlaue (time) and print a list of Menu objects (available_menus).
+  def available_menus(self, time):
+    available_menus = []
+    for menu in self.menus:
+      if (time >= int(menu.start_time)) & (time < int(menu.end_time)):
+        available_menus.append(menu.name)
+    if (len(available_menus) > 0):
+      print(available_menus)
+    elif (len(available_menus) == 0):
+      print("There is no menu available.")
+
+# Business Initializations ---------------------------------------------------------------------------------
+class Business:
+	#Constructor
+  def __init__(self, name, *franchises):
+    self.name = name
+    self.franchises = franchises
 
 # Menu Initializations -------------------------------------------------------------------------------------
 brunch = Menu(
@@ -73,9 +100,9 @@ brunch = Menu(
   'orange juice': 3.50
   },
   # start_time
-  '11:00am',
+  '1100',
   # end_time
-  '04:00pm'
+  '1600'
   )
 early_bird = Menu(
   # name of the menu
@@ -91,9 +118,9 @@ early_bird = Menu(
     'espresso': 3.00
    }, 
    # start_time
-   '03:00pm', 
+   1500, 
    # end_time
-   '06:00pm'
+   1800
    )
 dinner = Menu(
   # name of the menu
@@ -109,9 +136,9 @@ dinner = Menu(
     'espresso': 3.00
   },
    # start_time
-  '05:00pm',
+  1700,
    # end_time
-  '11:00pm'
+  2300
   )
 kids = Menu(
   # name of the menu
@@ -123,9 +150,24 @@ kids = Menu(
   'apple juice': 3.00
   },
   # start_time
-  '11:00am',
+  1100,
   # end_time
-  '09:00pm'
+  2100
+  )
+arepas_menu = Menu(
+  # name of the menu
+  "Take a' Arepa", 
+  # items {'name1': price1, 'name2': price2, ...}
+  {
+    'arepa pabellon': 7.00, 
+    'pernil arepa': 8.50,
+    'guayanes arepa': 8.00,
+    'jamon arepa': 7.50
+  },
+  # start_time
+  1000, 
+  # end_time
+  2000
   )
 
 # Franchise Initializations -------------------------------------------------------------------------------
@@ -139,10 +181,23 @@ new_installment = Franchise(
 	'12 East Mulberry Street', 
 	# menus of the new installment
 	brunch, early_bird, dinner, kids)
+arepas_place = Franchise(
+  # address of the arepas
+  '189 Fitzgerald Avenue', arepas_menu)
+
+# Business Initializations -------------------------------------------------------------------------------
+business1 = Business("Basta Fazoolin' with my Heart", flagship_store, new_installment)
+business2 = Business("Take a' Arepa", arepas_place)
 
 # Testing -------------------------------------------------------------------------------------------------
 
-early_bird.print_info()
-brunch.calculate_bill('pancakes', 'coffee') 
-repr(flagship_store)
+# early_bird.print_info()
+# brunch.calculate_bill('pancakes', 'coffee') 
+# repr(flagship_store)
+# flagship_store.available_menus(1700)
 
+for menu in business1.franchises[0].menus:
+  print(menu.name)
+
+for menu in business2.franchises[0].menus:
+  print(menu.name)
