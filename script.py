@@ -2,11 +2,11 @@
 # Menu
 # ----------------------------------------------------------------------------------------------------------
 # - name: string
-# - items: string                           
+# - items: dict{string: integer}                           
 # - start_time: integer     
 # - end_time: integer
 # ----------------------------------------------------------------------------------------------------------
-# + __init__ (self, string, string, integer, integer): void
+# + __init__ (self, string, dict{string: integer}, integer, integer): void
 # + print_info(self): void
 # + calculate_bill(self, *string): void
 # ----------------------------------------------------------------------------------------------------------
@@ -36,7 +36,7 @@ class Menu:
   # Constructor
   def __init__(self, name, items, start_time, end_time):
     self.name = name                   # name of the menu
-    self.items = items                 # items on the menu
+    self.items = items                 # collection of items on the menu
     self.start_time = start_time       # menu avaialble from
     self.end_time = end_time           # menu available until
   # Print the menu's name with the start and end time info.
