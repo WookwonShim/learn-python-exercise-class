@@ -57,11 +57,11 @@ class Menu:
     
 # Franchise Definition -------------------------------------------------------------------------------------
 class Franchise:
-	# Constructor
+  # Constructor
   def __init__(self, address, *menus):
     self.address = address
     self.menus = menus
-	# Return the address
+  # Return the address
   def __repr__(self):
     print(self.address)
     return self.address
@@ -78,7 +78,7 @@ class Franchise:
 
 # Business Initializations ---------------------------------------------------------------------------------
 class Business:
-	#Constructor
+  #Constructor
   def __init__(self, name, *franchises):
     self.name = name
     self.franchises = franchises
@@ -172,15 +172,15 @@ arepas_menu = Menu(
 
 # Franchise Initializations -------------------------------------------------------------------------------
 flagship_store = Franchise(
-	# address of the flagship store
-	'1232 West End Road', 
-	# menus of the flagship store
-	brunch, early_bird, dinner, kids)
+  # address of the flagship store
+  '1232 West End Road', 
+  # menus of the flagship store
+  brunch, early_bird, dinner, kids)
 new_installment = Franchise(
-	# address of the new installment
-	'12 East Mulberry Street', 
-	# menus of the new installment
-	brunch, early_bird, dinner, kids)
+  # address of the new installment
+  '12 East Mulberry Street', 
+  # menus of the new installment
+  brunch, early_bird, dinner, kids)
 arepas_place = Franchise(
   # address of the arepas
   '189 Fitzgerald Avenue', arepas_menu)
@@ -195,9 +195,5 @@ business2 = Business("Take a' Arepa", arepas_place)
 # brunch.calculate_bill('pancakes', 'coffee') 
 # repr(flagship_store)
 # flagship_store.available_menus(1700)
-
-for menu in business1.franchises[0].menus:
-  print(menu.name)
-
-for menu in business2.franchises[0].menus:
-  print(menu.name)
+# for menu in business1.franchises[0].menus: print(menu.name)
+for menu in business2.franchises[0].menus: print(menu.name)
