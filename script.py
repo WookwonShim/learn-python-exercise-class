@@ -190,7 +190,6 @@ business1 = Business("Basta Fazoolin' with my Heart", flagship_store, new_instal
 business2 = Business("Take a' Arepa", arepas_place)
 
 # Testing -------------------------------------------------------------------------------------------------
-
 # early_bird.print_info()
 # brunch.calculate_bill('pancakes', 'coffee') 
 # repr(flagship_store)
