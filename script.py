@@ -1,27 +1,27 @@
-# ------------------------------------------------------------------------------
-#				   Menu
-# ------------------------------------------------------------------------------
+# ----------------------------------------------------------------------------------------------------------
+# Menu
+# ----------------------------------------------------------------------------------------------------------
 # - name: string
 # - items: string                           
 # - start_time: string     
 # - end_time: string
-# ------------------------------------------------------------------------------
+# ----------------------------------------------------------------------------------------------------------
 # + __init__ (self, string, string, string, string): void
 # + print_info(self): void
 # + calculate_bill(self, string): void
-# ------------------------------------------------------------------------------
+# ----------------------------------------------------------------------------------------------------------
 
-# ------------------------------------------------------------------------------
-#				Franchise
-# ------------------------------------------------------------------------------
+# ----------------------------------------------------------------------------------------------------------
+# Franchise
+# ----------------------------------------------------------------------------------------------------------
 # - address: string
 # - menus: string                             
-# ------------------------------------------------------------------------------
+# ----------------------------------------------------------------------------------------------------------
 # + __init__ (self, string, string, string, string): void
 # + __repr__ (self): void
-# ------------------------------------------------------------------------------
+# ----------------------------------------------------------------------------------------------------------
 
-# Menu Definition --------------------------------------------------------------
+# Menu Definition ------------------------------------------------------------------------------------------
 class Menu:
   # Constructor
   def __init__(self, name, items, start_time, end_time):
@@ -31,8 +31,7 @@ class Menu:
     self.end_time = end_time           # menu available until
   # Print the menu's name with the start and end time info.
   def print_info(self):
-    print(self.name + ' menu available from ' + 
-		self.start_time + ' to ' + self.end_time)
+    print(self.name + ' menu available from ' + self.start_time + ' to ' + self.end_time)
   # Calculate and print the bill amount based on purchased_items.
   def calculate_bill(self, *purchased_items):    
     total_bill = 0 # initialized
@@ -47,7 +46,7 @@ class Menu:
     # print the total bill amount.    
     print(total_bill)		
     
-# Franchise Definition ---------------------------------------------------------
+# Franchise Definition -------------------------------------------------------------------------------------
 class Franchise:
 	# Constructor
   def __init__(self, address, *menus):
@@ -58,7 +57,7 @@ class Franchise:
     print(self.address)
     return self.address
 
-# Menu Initializations ---------------------------------------------------------
+# Menu Initializations -------------------------------------------------------------------------------------
 brunch = Menu(
   # name of the menu
   'Brunch',
@@ -130,19 +129,19 @@ kids = Menu(
   '09:00pm'
   )
 
-# Franchise Initializations ---------------------------------------------------
+# Franchise Initializations -------------------------------------------------------------------------------
 flagship_store = Franchise(
 	# address of the flagship store
-  '1232 West End Road', 
+	'1232 West End Road', 
 	# menus of the flagship store
-  brunch, early_bird, dinner, kids)
+	brunch, early_bird, dinner, kids)
 new_installment = Franchise(
 	# address of the new installment
-  '12 East Mulberry Street', 
+	'12 East Mulberry Street', 
 	# menus of the new installment
-  brunch, early_bird, dinner, kids)
+	brunch, early_bird, dinner, kids)
 
-# Testing ---------------------------------------------------------------------
+# Testing -------------------------------------------------------------------------------------------------
 
 early_bird.print_info()
 brunch.calculate_bill('pancakes', 'coffee') 
