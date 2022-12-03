@@ -41,8 +41,7 @@ class Menu:
         # Add the price of the purchased item to total_bill
         total_bill += self.items[item]
       elif item not in self.items:
-        print(item + " is not found on the menu. 
-        Please enter the correct name(s) of the purchased item(s)")
+        print(item + " is not found on the menu. Please enter the correct name(s) of the purchased item(s)")
     # print the total bill amount.    
     print(total_bill)		
     
@@ -146,3 +145,4 @@ new_installment = Franchise(
 early_bird.print_info()
 brunch.calculate_bill('pancakes', 'coffee') 
 repr(flagship_store)
+
