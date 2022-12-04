@@ -1,0 +1,47 @@
+graph LR
+	subgraph Business Stakeholders
+		Business(Business)
+		Business_Investor(Business Investor)
+	end
+	subgraph Franchise Operations
+		subgraph Franchise Stakeholder
+			Franchise_Investor(Franchise Investor)
+		end
+		Franchise --- Products_and_Services(Products & Services)
+		Franchise --- Employee(Employee)
+		Franchise --- Customer(Customer) 
+		Franchise --- Inventory(Inventory)
+		Franchise --- Database(Database)
+		Franchise --- Equipment(Equipment)
+			subgraph Products & Services
+				Products_and_Services --- Merchandise(Merchandise)
+				Products_and_Services --- Gift_Card(Gift Card)
+				Products_and_Services --- Menu(Menu)
+					Menu --- Food(Food)
+					Menu --- Beverage(Beverage)
+			end
+			subgraph Human Resources
+				Employee --- Back_of_House(Back of House)
+				Employee --- Front_of_House(Front of House)
+				Employee --- Admin(Admin)
+			end
+			subgraph Customers
+				Customer(Customer)
+			end
+			subgraph Inventories
+				Inventory --- Food_Inventory(Food)
+				Inventory --- Beverage_Inventory(Beverage)
+				Inventory --- Supply_Inventory(Supply)
+				Inventory --- Merchandise_Inventory(Merchandise)
+			end	
+			subgraph Accounting & Finance
+				Database
+				Equipment
+			end
+		subgraph Suppliers
+			Supplier(Supplier)
+		end
+	end
+
+Business --- Franchise
+Supplier --- Inventory
