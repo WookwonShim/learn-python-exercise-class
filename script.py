@@ -182,8 +182,10 @@ new_installment = Franchise(
   # menus of the new installment
   brunch, early_bird, dinner, kids)
 arepas_place = Franchise(
-  # address of the arepas
-  '189 Fitzgerald Avenue', arepas_menu)
+  # address of arepas_place
+  '189 Fitzgerald Avenue', 
+  # menu of arepas_place
+  arepas_menu)
 
 # Business Initializations -------------------------------------------------------------------------------
 business1 = Business("Basta Fazoolin' with my Heart", flagship_store, new_installment)
