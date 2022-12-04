@@ -76,7 +76,7 @@ class Franchise:
     elif (len(available_menus) == 0):
       print("There is no menu available.")
 
-# Business Initializations ---------------------------------------------------------------------------------
+# Business Definition --------------------------------------------------------------------------------------
 class Business:
   #Constructor
   def __init__(self, name, *franchises):
